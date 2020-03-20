@@ -1,0 +1,12 @@
+RewriteEngine on
+
+# REGRA DE REWRITE CENTRAL AMIGÁVEL
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ ./public/index.php?rewrite=$1 [QSA,NC]
+
+#Determina que o rewrite só se aplicará se nao (!) existir um arquivo (-f) com aquele nome
+#
+#./public/index.php?rewrite , a parte onde está escrito
+#Essa regra serve para pegar  a url limpa digitada no navegador, como www.meu.com.br/novo-curso
+#Com ela ao digitar novo-curso no qual corresponde a uma pagina do site, é pego essa frase e passada para uma var que faz o
+#redirecionamento. Isso evitar de digitar por exemplo www.meu.com.br/novo-curso.php
